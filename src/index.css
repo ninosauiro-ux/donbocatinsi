@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cartoon color palette - Don Bocatín branding */
+    --background: 28 100% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Vibrant orange-red (#FF6B35) */
+    --primary: 13 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 13 85% 53%;
+    
+    /* Secondary: Warm yellow (#FFD166) */
+    --secondary: 44 100% 70%;
+    --secondary-foreground: 222 47% 11%;
+    
+    /* Accent: Teal (#2EC4B6) */
+    --accent: 175 63% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 28 40% 92%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 30% 88%;
+    --input: 28 30% 88%;
+    --ring: 13 100% 60%;
+
+    --radius: 1rem;
+
+    /* Cartoon shadows and effects */
+    --shadow-cartoon: 0 4px 0 0 hsl(13 85% 53%);
+    --shadow-soft: 0 10px 30px -10px hsl(222 47% 11% / 0.15);
+    --shadow-glow: 0 0 30px hsl(13 100% 60% / 0.25);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(13 100% 60%) 0%, hsl(44 100% 70%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(28 100% 97%) 0%, hsl(44 100% 95%) 100%);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-shadow-cartoon {
+    text-shadow: 3px 3px 0 hsl(var(--primary-dark));
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .hover-bounce {
+    @apply transition-transform duration-400 hover:scale-105;
+  }
+}
